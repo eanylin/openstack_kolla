@@ -17,7 +17,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 After ensuring that the docker containers are in good state, we will
 move on to checking the current state of the OpenStack environment.
 
-The relevant files for this hands-on session can be under `/opt`
+The relevant files for this hands-on session can be found under `/opt`
 
 Verify basic OpenStack API calls.  The OpenStack API Calls should work
 and we should not see any VM or Cinder volume in the environment.
