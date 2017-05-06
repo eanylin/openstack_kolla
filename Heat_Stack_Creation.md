@@ -30,7 +30,7 @@ We can monitor the progress of the heat stack creation with the following comman
 watch openstack stack list
 ```
 
-The heat should get created after waiting for a while
+The heat stack should get created after waiting for a while
 
 ```
 [root@centos opt]# openstack stack list
