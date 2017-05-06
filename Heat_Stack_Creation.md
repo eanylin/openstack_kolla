@@ -1,4 +1,6 @@
-## Create Heat Stack
+## Working with Heat Stack
+
+### Example 1
 
 In this example we will create a single VM and attach a 1GB LVM Cinder volume 
 to it.  We will pass the required values such as ssh key, flavor, network and image
@@ -53,5 +55,21 @@ The heat stack should get created after waiting for a while
 +--------------------------------------+---------------------------------+--------+------+---------------------------------------------------------------+
 | e6228d85-3bc8-4e06-990c-85477a246453 | test_stack1-my_vol-pssfxzozubnp | in-use |    1 | Attached to test_stack1-my_instance-mhxeakev2dsq on /dev/vdb  |
 +--------------------------------------+---------------------------------+--------+------+---------------------------------------------------------------+
+[root@centos opt]#
+```
+
+Delete the Heat Stack
+
+```
+[root@centos opt]# openstack stack delete test_stack1
+Are you sure you want to delete this stack(s) [y/N]? y
+[root@centos opt]# openstack stack list
++--------------------------------------+-------------+----------------------------------+--------------------+----------------------+----------------------+
+| ID                                   | Stack Name  | Project                          | Stack Status       | Creation Time        | Updated Time         |
++--------------------------------------+-------------+----------------------------------+--------------------+----------------------+----------------------+
+| 8be339af-0cac-4ca3-8483-3819601fc24b | test_stack1 | fea0597a2ea848e9a8812dabb6a4cb35 | DELETE_IN_PROGRESS | 2017-04-30T00:29:23Z | 2017-04-30T00:37:29Z |
++--------------------------------------+-------------+----------------------------------+--------------------+----------------------+----------------------+
+[root@centos opt]# openstack stack list
+
 [root@centos opt]#
 ```
