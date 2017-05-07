@@ -1,8 +1,7 @@
 ## Environment Rebuild
 
-We will tear down the existing in this exercise and rebuild it with
-existing configurations to show that things will still work after that
-
+We will tear down the existing environment in this exercise and rebuild it
+from scratch
 
 ### Pre-Checks
 
@@ -90,7 +89,8 @@ Further information can also be found on the official Kolla Ansible documentatio
 We are now ready to tear down our environment
 
 Execute the following commands from `/opt` folder to clean up the containers
-and host configuration files
+and host configuration files (Do not delete any of the docker images as it 
+will take time to download them again)
 
 ```
 kolla-ansible/tools/cleanup-containers
