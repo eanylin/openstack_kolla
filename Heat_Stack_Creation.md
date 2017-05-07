@@ -98,7 +98,7 @@ openstack stack create --parameter image=cirros \
                        --parameter private_net_id=demo-net \
                        --parameter private_subnet_id=$(neutron subnet-list | grep demo-subnet | awk '{print $2}') \
                        --parameter public_net_id=public1 \
-                       -t single_vm_floating_ip.yaml test_stack01
+                       -t single_vm_floating_ip_heat.yaml test_stack01
 ```
 
 Check the progress of the stack creation and wait for it to complete.  Take note of the 
