@@ -14,3 +14,5 @@ The Hands-On Lab will proceed in the following order:
 1. Validate Environment
 2. Heat Stack Creation
 3. Rebuild Environment
+4. Logs
+5. Multi-Nodes Cluster
