@@ -14,3 +14,11 @@ at the errors messages in these logs.
 ansible.log  cinder  glance  haproxy  heat  horizon  keystone  libvirt  mariadb  neutron  nova  openvswitch  rabbitmq  swift
 [root@centos _data]#
 ```
+
+The usual docker command can be useful as well.  For instance,
+if we want to look at the logs of the cinder-volume container,
+we can do the following
+
+```
+docker logs $(docker ps -a | grep cinder-volume | awk '{print $1}')
+```
