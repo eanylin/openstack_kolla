@@ -34,12 +34,12 @@ docker.io/registry                                                 2            
 
 The most important file for building the kolla ansible environment
 is the globals.yaml.  We are keeping most of the variables with its
-default value and make changes to those that are environment dependent.
+default value and making changes to those that are environment specific.
 
 We need to make sure that we are pointing to the docker registry that
 we set up on our node and that we are assigning an unused IP as the
 internal VIP address.  We are using source build in this example (default
-for CentOS is binary)
+for CentOS is binary).
 
 The instructions for setting up the docker registry can be found at the
 official Kolla document [link](https://docs.openstack.org/project-deploy-guide/kolla-ansible/ocata/multinode.html)
@@ -80,7 +80,7 @@ generate random passwords is as follows:
 kolla-genpwd
 ```
 
-Further information can also be found on the official Kolla Ansible documentation
+Further information can also be found at the official Kolla Ansible documentation
 [link](https://docs.openstack.org/developer/kolla-ansible/quickstart.html)
 
 
@@ -89,8 +89,8 @@ Further information can also be found on the official Kolla Ansible documentatio
 We are now ready to tear down our environment
 
 Execute the following commands from `/opt` folder to clean up the containers
-and host configuration files (Do not delete any of the docker images as it 
-will take time to download them again)
+and host configuration files (**Do not delete any of the docker images as it 
+will take time to download them again**)
 
 ```
 kolla-ansible/tools/cleanup-containers
