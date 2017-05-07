@@ -11,5 +11,6 @@ The Virtualbox images for the lab session can be downloaded from [Google Drive](
 
 The Hands-On Lab will proceed in the following order:
 
-1. Validate_Environment
-2. Heat_Stack_Creation
+1. Validate Environment
+2. Heat Stack Creation
+3. Rebuild Environment
