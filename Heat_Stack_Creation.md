@@ -36,7 +36,7 @@ We can monitor the progress of the heat stack creation with the following comman
 watch openstack stack list
 ```
 
-The heat stack should get created after waiting for a while
+The heat stack should get created after a while
 
 ```
 [root@centos opt]# openstack stack list
@@ -80,9 +80,8 @@ Are you sure you want to delete this stack(s) [y/N]? y
 
 ### Example 2
 
-We will test floating IP assignment and remote SSH into the Cirros VM in this example.
-Note that we are using host-only adpater network and hence will not be able to reach
-the internet from our Cirros VM.
+We will test floating IP assignment and remote SSH login in this example.  Note that we are using 
+host-only adpater network and hence will not be able to access the internet from our Cirros VM.
 
 Download the HOT template from the following [link](https://raw.githubusercontent.com/eanylin/openstack_kolla/master/single_vm_floating_ip_heat.yaml)
 
@@ -102,7 +101,8 @@ openstack stack create --parameter image=cirros \
                        -t single_vm_floating_ip.yaml test_stack01
 ```
 
-Check the progress of the stack creation and wait for it to complete to get the floating IP of the VM:
+Check the progress of the stack creation and wait for it to complete.  Take note of the 
+floating IP of the Cirros VM:
 
 ```
 [root@centos opt]# openstack stack list
@@ -121,7 +121,7 @@ Check the progress of the stack creation and wait for it to complete to get the 
 [root@centos opt]# 
 ```
 
-Check that you can ping and SSH to the Cirros VM:
+Check that you can ping and SSH to the Cirros VM from your laptop/host machine:
 
 ```
 MacBook-Pro:openstack_kolla root$ ping -c 3 192.168.56.151
@@ -134,6 +134,7 @@ PING 192.168.56.151 (192.168.56.151): 56 data bytes
 3 packets transmitted, 3 packets received, 0.0% packet loss
 round-trip min/avg/max/stddev = 0.929/1.130/1.476/0.246 ms
 MacBook-Pro:openstack_kolla root$ 
+MacBook-Pro:openstack_kolla root$ 
 MacBook-Pro:openstack_kolla root$ telnet 192.168.56.151 22
 Trying 192.168.56.151...
 Connected to 192.168.56.151.
@@ -142,6 +143,7 @@ SSH-2.0-dropbear_2012.55
 ^]
 telnet> quit
 Connection closed.
+MacBook-Pro:openstack_kolla root$ 
 MacBook-Pro:openstack_kolla root$ 
 MacBook-Pro:openstack_kolla root$ ssh 192.168.56.151 -l cirros
 The authenticity of host '192.168.56.151 (192.168.56.151)' can't be established.
@@ -181,4 +183,4 @@ Are you sure you want to delete this stack(s) [y/N]? y
 
 Hence we can see that Kolla Ansible is able to bring up an OpenStack 
 environment with Docker containers and performs the same tasks as 
-traditional KVM/VM approach for bringing up the environment.
+traditional KVM/VM approach.
