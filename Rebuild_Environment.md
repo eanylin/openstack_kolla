@@ -92,6 +92,9 @@ Execute the following commands from `/opt` folder to clean up the containers
 and host configuration files (**Do not delete any of the docker images as it 
 will take time to download them again**)
 
+***Make sure that you do not have any active VMs in the environment before executing
+the clean up scripts***
+
 ```
 kolla-ansible/tools/cleanup-containers
 
@@ -136,12 +139,21 @@ cb9f7e51bc7b        registry:2          "/entrypoint.sh /etc/"   7 days ago     
 ```
 
 
+### Kolla Ansible Pre-Check
+
+Execute pre-check scripts
+
+```
+kolla-ansible prechecks -i /opt/all-in-one
+```
+
+
 ### Kolla Ansible Deploy
 
 Start Deployment
 
 ```
-kolla-ansible deploy -i all-in-one
+kolla-ansible deploy -i /opt/all-in-one
 ```
 
 Deployment time is dependent on the underlying host and will vary between
