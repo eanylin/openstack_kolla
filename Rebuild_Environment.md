@@ -98,7 +98,7 @@ the clean up scripts***
 ```
 kolla-ansible/tools/cleanup-containers
 
-kolla-ansible/tools/cleanup-hosts
+kolla-ansible/tools/cleanup-host
 ```
 
 The output should look similar to this
