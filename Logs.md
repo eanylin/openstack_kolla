@@ -31,7 +31,7 @@ Network Node by executing the following command
 [root@network01 ~]# docker exec $(docker ps -a | grep openvswitch_vswitchd | awk '{print $1}') ovs-vsctl show
 ```
 
-The usual commands used for neutron troubleshooting can be used as
+The usual commands for neutron troubleshooting can be used as
 well
 
 ```
@@ -47,7 +47,7 @@ from the **Operator** node if we encountered failures related
 to heat engine.  The command will return output if it finds any
 occurence of ***error*** in the heat-engine log files across the 
 3 controller nodes.  This is useful for troubleshooting multi-nodes 
-environment (***same concept can be applied to other OpenStack services***)
+environment (***similar concept can be applied to other OpenStack services***)
 
 ```
 [root@operator opt]# ansible control -i multinode -m shell -a "grep -i error /var/lib/docker/volumes/kolla_logs/_data/heat/heat-engine.log"

@@ -8,11 +8,11 @@ The OpenStack environment is CentOS based with OVS bridge and LVM Cinder.
 
 The Virtualbox images for the lab session can be downloaded from [Google Drive](https://drive.google.com/drive/folders/0B4s2vD6eSZllZlFTdU1QZ001eXc?usp=sharing)
 
-While we did not cover Kolla Kubernetes in the session, the Virtualbox images 
+While we did not cover Kolla Kubernetes in this session, the Virtualbox image
 for Kolla Kubernetes can be found at the same link as well.
 
 As discussed during the workshop, participants should refer to the ***Virtualbox
-and Kolla VM Installation*** pdf file to restore Virtualbox images
+and Kolla VM Installation*** pdf file on how to restore Virtualbox images
 
 Videos on multi-nodes deployment have been uploaded as well for reference.
 
