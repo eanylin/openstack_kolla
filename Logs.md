@@ -22,3 +22,33 @@ we can do the following
 ```
 docker logs $(docker ps -a | grep cinder-volume | awk '{print $1}')
 ```
+
+As discussed during the workshop, we are using host networking for
+the docker containers.  We can check the OVS configurations on the 
+Network Node by executing the following command
+
+```
+[root@network01 ~]# docker exec $(docker ps -a | grep openvswitch_vswitchd | awk '{print $1}') ovs-vsctl show
+```
+
+The usual commands used for neutron troubleshooting can be used as
+well
+
+```
+[root@network01 ~]# ip a
+[root@network01 ~]# ip netns ls
+[root@network01 ~]# ip netns exec <qrouter-id> ip a
+[root@network01 ~]# ip netns exec <qrouter-id> ip r
+[root@network01 ~]# ip netns exec <qrouter-id> ping <gateway_ip> -c 3
+```
+
+Lastly, we can execute Ansible commands such as the one below
+from the **Operator** node if we encountered failures related 
+to heat engine.  The command will return output if it finds any
+occurence of ***error*** in the heat-engine log files across the 
+3 controller nodes.  This is useful for troubleshooting multi-nodes 
+environment (***same concept can be applied to other OpenStack services***)
+
+```
+[root@operator opt]# ansible control -i multinode -m shell -a "grep -i error /var/lib/docker/volumes/kolla_logs/_data/heat/heat-engine.log"
+```
